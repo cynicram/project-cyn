@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://hvlh17vgjw2a"]
+
+[ext_resource type="PackedScene" uid="uid://ceyv4fgtdy6lc" path="res://Entities/Player/Base/Base-Character.tscn" id="1_0bg6g"]
+[ext_resource type="Resource" uid="uid://k80gbk8jq12e" path="res://Entities/Player/Characters/Aroma/Aroma.tres" id="2_syqoi"]
+
+[node name="project-cyn" type="Node2D" unique_id=438226568]
+
+[node name="Node2D" parent="." unique_id=711869869 instance=ExtResource("1_0bg6g")]
+position = Vector2(23, 42)
+stats = ExtResource("2_syqoi")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=645857128]
+position = Vector2(143, 137)
+zoom = Vector2(4, 4)

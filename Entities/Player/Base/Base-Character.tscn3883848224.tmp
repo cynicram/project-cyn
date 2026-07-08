@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://ceyv4fgtdy6lc"]
+
+[ext_resource type="Texture2D" uid="uid://bpox2hvs0q3h1" path="res://Entities/Player/Base/base.png" id="1_r6pms"]
+
+[sub_resource type="GDScript" id="GDScript_r6pms"]
+script/source = "extends CharacterBody2D
+
+@export var stats: character_stats
+
+func _physics_process(delta):
+	var input_vector := Vector2(
+		Input.get_action_strength(\"ui_right\") - Input.get_action_strength(\"ui_left\"),
+		Input.get_action_strength(\"ui_down\") - Input.get_action_strength(\"ui_up\")
+	)
+
+	velocity = input_vector.normalized() * stats.speed
+	
+	move_and_slide()
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ymsva"]
+radius = 33.0
+
+[node name="Player-Base2D" type="CharacterBody2D" unique_id=711869869]
+script = SubResource("GDScript_r6pms")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1745408599]
+position = Vector2(121, 91)
+texture = ExtResource("1_r6pms")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=91674721]
+position = Vector2(120, 93)
+shape = SubResource("CircleShape2D_ymsva")
